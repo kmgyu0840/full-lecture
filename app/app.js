@@ -13,6 +13,9 @@ app.set("view engine", "ejs");
 const home = require("./src/routes/home");
 app.use("/", home);
 
+// login.ejs와 js/home/login.js를 연결 역할 (미들 웨어)
+app.use(express.static(`${__dirname}/src/public`));
+
 // bin/www.js에서 app을 사용할 수 있도록 연결 역할
 module.exports = app;
 
