@@ -2,12 +2,13 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <script src="/js/home/login.js"></script>
+    <!-- defer 꼭 입력해야함 -->
+    <script src="/js/home/login.js" defer></script> 
     <title>Title</title>
 </head>
 <body>
-    <input type="text" placeholder="아이디"> <br>
-    <input type="text" placeholder="비밀번호"> <br>
+    <input id = "id" type="text" placeholder="아이디"> <br>
+    <input id = "pw"  type="text" placeholder="비밀번호"> <br>
     <button>로그인</button>
 </body>
 </html>
