@@ -9,18 +9,13 @@ const app = express();
 app.set("views", "./views");
 app.set("view engine", "ejs");
 
-// 브라우저에 요청받고 반응하기 위해 (현재는 "/"에 들어오면 주는 것만)
-app.get("/", (req, res) => {
-    res.render("home/index")   // views/home/index.ejs와 연결시키는 것
-});
-
-// 브라우저에 요청받고 반응하기 위해 (현재는 "/login"에 들어오면 주는 것만)
-app.get("/login", (req,res) => {
-    res.render("home/login")   // views/home/login.ejs와 연결시키는 것
-});
+// routes/home/index.js에 있는 router를 연결하는 역할 (미들 웨어)
+const home = require("./routes/home");
+app.use("/", home);
 
 // 3000번 포트로 서버 가동 (이것만으로도 서버 가동하는 것)
-app.listen(3000, () => {
+const PORT = 3000
+app.listen(PORT, () => {
     console.log("서버 가동");
 });
 
