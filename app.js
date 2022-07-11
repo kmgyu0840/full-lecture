@@ -13,11 +13,8 @@ app.set("view engine", "ejs");
 const home = require("./routes/home");
 app.use("/", home);
 
-// 3000번 포트로 서버 가동 (이것만으로도 서버 가동하는 것)
-const PORT = 3000
-app.listen(PORT, () => {
-    console.log("서버 가동");
-});
+// bin/www.js에서 app을 사용할 수 있도록 연결 역할
+module.exports = app;
 
 // 서버 실행은 node app.js
 
