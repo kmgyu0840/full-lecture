@@ -4,38 +4,19 @@
 const express = require("express");
 const app = express();
 
+// npm install ejs -s 설치
+//뷰단에 해당 부분을 처리해 줄 수 있는 뷰엔진 세팅
+app.set("views", "./views");
+app.set("view engine", "ejs");
+
 // 브라우저에 요청받고 반응하기 위해 (현재는 "/"에 들어오면 주는 것만)
 app.get("/", (req, res) => {
-    res.send(`
-        <!DOCTYPE html>
-        <html lang="ko">
-        <head>
-            <meta charset="UTF-8">
-            <title>Title</title>
-        </head>
-            <body>
-            여기는 루트입니다.
-            </body>
-        </html>
-   `);
+    res.render("home/index")   // views/home/index.ejs와 연결시키는 것
 });
 
 // 브라우저에 요청받고 반응하기 위해 (현재는 "/login"에 들어오면 주는 것만)
 app.get("/login", (req,res) => {
-    res.send(`
-        <!DOCTYPE html>
-        <html lang="ko">
-        <head>
-            <meta charset="UTF-8">
-            <title>Title</title>
-        </head>
-            <body>
-            <input type="text" placeholder="아이디"> <br>
-            <input type="text" placeholder="비밀번호"> <br>
-            <button>로그인</button>
-            </body>
-        </html>
-   `)
+    res.render("home/login")   // views/home/login.ejs와 연결시키는 것
 });
 
 // 3000번 포트로 서버 가동 (이것만으로도 서버 가동하는 것)
