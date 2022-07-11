@@ -6,11 +6,11 @@ const app = express();
 
 // npm install ejs -s 설치
 //뷰단에 해당 부분을 처리해 줄 수 있는 뷰엔진 세팅
-app.set("views", "./views");
+app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
 // routes/home/index.js에 있는 router를 연결하는 역할 (미들 웨어)
-const home = require("./routes/home");
+const home = require("./src/routes/home");
 app.use("/", home);
 
 // bin/www.js에서 app을 사용할 수 있도록 연결 역할
