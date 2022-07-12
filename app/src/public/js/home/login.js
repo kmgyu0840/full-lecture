@@ -23,6 +23,9 @@ function login() {
             "Content-Type": "application/json"     //요청하는 전달하는 데이터가 json인걸 알려줘야하므로
         },
         body: JSON.stringify(req),     //위에 들어오는 데이터 형식이 문자열인 JSON 형식이므로
-    });
+    })
+    // 서버 home.ctrl.js에서 응답하는 success(true, false) 데이터를 받으려면
+    .then((res) => res.json())
+    .then((res) => {});
 }
 

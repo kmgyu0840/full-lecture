@@ -1,5 +1,11 @@
 "use strict";
 
+const users = {
+    id : ["qwe", "asd", "zxc"],
+    pw : ["123", "456", "789"],
+};
+
+
 // home, login은 뷰단을 내보내주는 역할로 output으로 정의
 const output = {
     home : (req, res) => {
@@ -12,8 +18,10 @@ const output = {
 
 // public/js/home/login.js에서 body로 데이터를 전달 받음
 const process = {
-    login : (req, res) => {
-        console.log(req.body);
+    login : (req, res) => { //인증하는 과정
+        const id = req.body.id,
+            pw = req.body.pw;
+        console.log(id, pw);
     },
 };
 
