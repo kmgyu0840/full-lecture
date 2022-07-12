@@ -14,4 +14,15 @@ function login() {
         pw : pw.value,     //pw 데이터 가져오는
     };
     console.log(req);      //웹 개발자모드에 데이터 출력이되는지 확인
+
+    // 데이터가 서버로 받으려면 브라우저의 /login경로 POST메서드로 데이터를 받을 수 있는 API가 마련되어 있어야 함
+    // routes/home/index.js에 post를 만들어줘야함
+    fetch("/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"     //요청하는 전달하는 데이터가 json인걸 알려줘야하므로
+        },
+        body: JSON.stringify(req),     //위에 들어오는 데이터 형식이 문자열인 JSON 형식이므로
+    });
 }
+
