@@ -21,7 +21,19 @@ const process = {
     login : (req, res) => { //인증하는 과정
         const id = req.body.id,
             pw = req.body.pw;
-        console.log(id, pw);
+        
+        if (users.id.includes(id)) {  //해당 id 확인 후 해당 index 불러오기
+            const idx = users.id.indexOf(id);
+            if (users.pw[idx] === pw) { //불러온 index 비밀번호만 일치하는지
+                return res.json({  //로그인에 성공하면 success:true 오브젝트를 json으로 프론트로 응답
+                    success: true,
+                });
+            }    
+        }
+        return res.json({  //실패하면... 
+            success: false,
+            msg: "로그인에 실패하였습니다.",
+        });
     },
 };
 

@@ -26,6 +26,15 @@ function login() {
     })
     // 서버 home.ctrl.js에서 응답하는 success(true, false) 데이터를 받으려면
     .then((res) => res.json())
-    .then((res) => {});
+    .then((res) => {
+        if(res.success) { //성공 시 해당 경로 이동
+            location.href = "/";
+        } else { //실패 시 실패메시지 띄우기
+            alert(res.msg)
+        }
+    }) //에러 발생 시 
+    .catch((err) => {
+        console.error("로그인 중 에러 발생");
+    })
 }
 
